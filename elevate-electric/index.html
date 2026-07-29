@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Elevate Electric — Website Preview</title>
+  <link rel="icon" href="favicon-32.png" sizes="32x32">
+  <style>
+    :root {
+      --cream: #f5f1e8;
+      --cream-2: #ece5d3;
+      --green: #123d2c;
+      --green-dark: #0b2a1f;
+      --amber: #d98c3d;
+      --ink: #1b1b18;
+      --text: #3d3b34;
+      --rule: rgba(18, 61, 44, 0.15);
+      --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.55;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+      width: 100%;
+      max-width: 940px;
+      margin: 0 auto;
+      padding: clamp(2.5rem, 7vw, 5rem) 6vw;
+    }
+
+    .logo {
+      width: 168px;
+      height: auto;
+      margin-bottom: 2.25rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 .6rem;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    h1 {
+      margin: 0 0 .75rem;
+      font-size: clamp(1.9rem, 5vw, 2.85rem);
+      line-height: 1.1;
+      letter-spacing: -.01em;
+      color: var(--green);
+    }
+
+    .lede {
+      margin: 0;
+      max-width: 56ch;
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .themes {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin: 2.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      background: #fff;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-3px);
+      border-color: transparent;
+      box-shadow: 0 12px 28px rgba(18, 61, 44, .16);
+    }
+
+    .card:focus-visible {
+      outline: 3px solid var(--amber);
+      outline-offset: 3px;
+    }
+
+    .swatch {
+      height: 116px;
+      display: flex;
+      align-items: flex-end;
+      padding: .9rem 1.1rem;
+    }
+
+    .swatch span {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .swatch-green {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+    }
+
+    .swatch-black {
+      background: linear-gradient(135deg, #2a2a28 0%, #121211 100%);
+    }
+
+    .swatch span {
+      color: var(--amber);
+    }
+
+    .card-body {
+      padding: 1.1rem 1.25rem 1.35rem;
+    }
+
+    .card-body h2 {
+      margin: 0 0 .3rem;
+      font-size: 1.22rem;
+      color: var(--green);
+    }
+
+    .card-body p {
+      margin: 0 0 1rem;
+      font-size: .93rem;
+      color: var(--text);
+    }
+
+    .cta {
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--amber);
+    }
+
+    .cta::after {
+      content: " →";
+    }
+
+    .note {
+      margin: 2.75rem 0 0;
+      padding: 1.15rem 1.35rem;
+      border-left: 3px solid var(--amber);
+      background: var(--cream-2);
+      border-radius: 0 8px 8px 0;
+      font-size: .93rem;
+      color: var(--text);
+    }
+
+    .note strong {
+      color: var(--green);
+    }
+
+    .note ul {
+      margin: .6rem 0 0;
+      padding-left: 1.15rem;
+    }
+
+    .note li+li {
+      margin-top: .3rem;
+    }
+
+    footer {
+      padding: 1.75rem 6vw 2.25rem;
+      border-top: 1px solid var(--rule);
+      font-size: .84rem;
+      color: #6b675c;
+      text-align: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .card,
+      .card:hover {
+        transition: none;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <img class="logo" src="logo.webp" alt="Elevate Electric" width="168" height="56">
+
+    <p class="eyebrow">Website redesign — preview</p>
+    <h1>Two directions to choose from</h1>
+    <p class="lede">
+      Both are the same single-page layout and the same content — only the color treatment
+      differs. Open each one, scroll all the way through, and let me know which direction
+      feels more like Elevate Electric.
+    </p>
+
+    <ul class="themes">
+      <li>
+        <a class="card" href="green.html">
+          <div class="swatch swatch-green"><span>Option A</span></div>
+          <div class="card-body">
+            <h2>Green theme</h2>
+            <p>Close to the green currently used on your existing website.</p>
+            <span class="cta">View this version</span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="card" href="black.html">
+          <div class="swatch swatch-black"><span>Option B</span></div>
+          <div class="card-body">
+            <h2>Black theme</h2>
+            <p>A darker, higher-contrast take on the same layout.</p>
+            <span class="cta">View this version</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+
+    <div class="note">
+      <strong>A few things to keep in mind while you look:</strong>
+      <ul>
+        <li>The striped grey boxes are where <strong>photos</strong> will go — those come later.</li>
+        <li>The colors are not locked in. Either theme can be recolored to anything you like.</li>
+        <li>It is one single page rather than several. For a site this size that usually works
+          better, but it can be split into separate pages easily if you would rather.</li>
+        <li>The quote form is not connected yet, so nothing is sent if you submit it.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>Private preview for Elevate Electric LLC — please don't share this link publicly.</footer>
+</body>
+
+</html>
