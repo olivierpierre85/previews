@@ -3,7 +3,10 @@
 
     Exported HTML files never carry a noindex tag, and any tag added by hand is
     lost the next time the file is re-exported. This script re-injects it across
-    every page, then commits, pushes and waits for GitHub Pages to redeploy.
+    every page, then commits and pushes.
+
+    Run it from an interactive PowerShell prompt so git can reach the credential
+    manager if it needs to re-authenticate.
 
     Usage:  .\update.ps1
             .\update.ps1 -Message "Elevate Electric: darker header"
@@ -60,27 +63,10 @@ try {
     git commit -q -m $Message
     if (-not $?) { throw "commit failed" }
 
-    $env:GH_TOKEN = (
-        @("protocol=https", "host=github.com", "") |
-        git credential fill |
-        Where-Object { $_ -like 'password=*' }
-    ) -replace '^password=', ''
-
-    git push -q origin main
+    git push origin main
     if (-not $?) { throw "push failed" }
-    "Pushed. Waiting for GitHub Pages..."
+    ""
+    "Pushed. GitHub Pages redeploys in about a minute."
+    "Watch it at: https://github.com/olivierpierre85/previews/actions"
 }
 finally { Pop-Location }
-
-# --- wait for the deploy ---------------------------------------------------
-
-$gh = "C:\Program Files\GitHub CLI\gh.exe"
-if (-not (Test-Path $gh)) { "gh not found. Check the deploy on github.com."; return }
-
-for ($i = 0; $i -lt 30; $i++) {
-    Start-Sleep -Seconds 10
-    $status = & $gh api repos/olivierpierre85/previews/pages --jq .status
-    if ($status -eq 'built') { "Deployed."; return }
-    if ($status -eq 'errored') { throw "Pages build failed. See the Actions tab." }
-}
-"Still building after 5 minutes. Check the Actions tab."
